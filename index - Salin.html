@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Bucin Romantis</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff1493;
+            --secondary-color: #ff69b4;
+            --text-color: #333;
+            --white: #fff;
+            --gray: #a3a3a3;
+            --dark-gray: #7a7a7a;
+            --hacker-green: #00ff00;
+            --hacker-red: #ff0033;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            transition: all 1s;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            color: var(--white);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            margin: 20px 0;
+            padding-top: 80px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .question {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .option {
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1rem;
+            min-width: 120px;
+        }
+
+        .option-left {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .option-right {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .option:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-corner {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            top: -75px;
+            right: 20px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            transition: all 0.5s;
+        }
+
+        .celebration {
+            background: linear-gradient(135deg, var(--secondary-color), #ff8fab);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .heartbreak {
+            background: linear-gradient(135deg, var(--gray), var(--dark-gray));
+            color: var(--white);
+        }
+
+        .scary {
+            background-color: #000;
+            color: var(--hacker-green);
+           font-family: 'Press Start 2P', cursive;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: falling linear forwards;
+            z-index: 100;
+            font-size: 24px;
+        }
+
+        @keyframes falling {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #partyAnthem {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        #partyAnthem:hover {
+            transform: scale(1.1);
+        }
+
+        #partyAnthem i {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .hearts {
+            position: absolute;
+            font-size: 20px;
+            animation: float 5s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Name Input Styles */
+        #name-input {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+        }
+
+        #name-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        #name-form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #name-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Message Form Styles */
+        #message-form input,
+        #message-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #message-form button[type="submit"] {
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        #message-form button[type="submit"]:hover {
+            background-color: #ff69b4;
+        }
+
+        .thank-you {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        /* Thank You Page */
+        #thank-you-page {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        #thank-you-page .container {
+            margin-top: 50px;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary-color);
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Ganyu Section */
+        #ganyu-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 5000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s;
+        }
+
+        #ganyu-section.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #ganyu-image {
+            width: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.5s;
+            opacity: 0;
+            transform: translateX(50px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #ganyu-image.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #ganyu-caption {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        #ganyu-caption.show {
+            opacity: 1;
+        }
+
+        #ganyu-message-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px;
+            width: 90%;
+            margin-top: 20px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 1s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #ganyu-message-box.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #ganyu-message-box h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        #ganyu-message-box p {
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 1.1rem;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        #ganyu-message-box p.show {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        #ganyu-close-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s;
+            box-shadow: 0 3px 10px rgba(255, 20, 147, 0.3);
+        }
+
+        #ganyu-close-btn.show {
+            opacity: 1;
+        }
+
+        #ganyu-close-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Hacker Effects */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            10% { clip: rect(112px, 9999px, 76px, 0); }
+            20% { clip: rect(85px, 9999px, 77px, 0); }
+            30% { clip: rect(27px, 9999px, 97px, 0); }
+            40% { clip: rect(64px, 9999px, 98px, 0); }
+            50% { clip: rect(61px, 9999px, 85px, 0); }
+            60% { clip: rect(99px, 9999px, 114px, 0); }
+            70% { clip: rect(34px, 9999px, 115px, 0); }
+            80% { clip: rect(98px, 9999px, 129px, 0); }
+            90% { clip: rect(43px, 9999px, 96px, 0); }
+            100% { clip: rect(82px, 9999px, 64px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 119px, 0); }
+            10% { clip: rect(25px, 9999px, 145px, 0); }
+            20% { clip: rect(50px, 9999px, 137px, 0); }
+            30% { clip: rect(50px, 9999px, 115px, 0); }
+            40% { clip: rect(33px, 9999px, 141px, 0); }
+            50% { clip: rect(55px, 9999px, 98px, 0); }
+            60% { clip: rect(25px, 9999px, 118px, 0); }
+            70% { clip: rect(15px, 9999px, 84px, 0); }
+            80% { clip: rect(30px, 9999px, 135px, 0); }
+            90% { clip: rect(85px, 9999px, 73px, 0); }
+            100% { clip: rect(90px, 9999px, 100px, 0); }
+        }
+
+        .terminal-text {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--hacker-green);
+            text-shadow: 0 0 5px var(--hacker-green);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        .terminal-line {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .virus-loading {
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        .virus-name {
+            font-family: 'VT323', monospace;
+            color: var(--hacker-red);
+            margin-bottom: 5px;
+        }
+
+        .loading-bar {
+            height: 20px;
+            background-color: #333;
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background-color: var(--hacker-red);
+            width: 0;
+            transition: width 0.5s linear;
+        }
+
+        .loading-percent {
+            position: absolute;
+            right: 5px;
+            top: 0;
+            color: white;
+            font-family: 'VT323', monospace;
+            line-height: 20px;
+        }
+
+        .system-damage {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            color: var(--hacker-red);
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .system-damage.active {
+            opacity: 1;
+        }
+
+        .damage-message {
+            margin: 10px 0;
+            animation: glitch-text 2s infinite;
+            display: none;
+        }
+
+        @keyframes glitch-text {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .terminal-code {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .code-line {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--hacker-green);
+            white-space: nowrap;
+            margin: 5px 0;
+            animation: scroll-up 20s linear infinite;
+        }
+
+        @keyframes scroll-up {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-100%); }
+        }
+
+        .fake-exit-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .fake-exit-btn:hover {
+            background-color: #555;
+        }
+
+        .final-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20000;
+            color: var(--hacker-red);
+            font-family: 'VT323', monospace;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1s;
+        }
+
+        .final-message.active {
+            opacity: 1;
+        }
+
+        .final-message p {
+            margin: 5px 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .question {
+                font-size: 1rem;
+            }
+            
+            .option {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                min-width: 100px;
+            }
+            
+            .image-corner {
+                width: 100px;
+                height: 100px;
+                top: -50px;
+                right: 10px;
+            }
+
+            .container {
+                padding-top: 70px;
+            }
+
+            #ganyu-image {
+                width: 150px;
+                height: 225px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .container {
+                padding: 20px;
+                padding-top: 60px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .options {
+                gap: 10px;
+                margin-top: 20px;
+            }
+            
+            .image-corner {
+                width: 80px;
+                height: 80px;
+                top: -40px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <audio id="partyMusic" loop>
+        <source src="IWBY.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="scarySound">
+        <source src="YAAI.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="romanticSound1">
+        <source src="romantic1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="romanticSound2">
+        <source src="romantic2.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="glitchSound">
+        <source src="glitch.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="typingSound">
+        <source src="typing.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Name Input Screen -->
+    <div id="name-input">
+        <div id="name-form">
+            <h2 style="color: #ff1493;">Masukkan Nama Kamu</h2>
+            <input type="text" id="user-name" placeholder="Nama kamu" required>
+            <button onclick="startSurvey()">Mulai</button>
+        </div>
+    </div>
+
+    <!-- Message Form -->
+    <div id="message-container" class="container hidden">
+        <img src="love2.jpeg" alt="Love Message" class="image-corner">
+        <h1>💌 Pesan Cinta 💌</h1>
+        <div class="thank-you">Terimakasih telah mengisi ini</div>
+        <div class="question">Tinggalkan pesan untuk orang yang kamu cintai</div>
+        
+        <form id="message-form">
+            <input type="hidden" name="_subject" value="Pesan Cinta Baru!">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" id="loved-one-name" name="to" placeholder="Dear (nama orang yang kamu cintai)" required>
+            <input type="text" id="from-name" name="from" placeholder="Untukmu dari (namamu)" value="" readonly required>
+            <textarea id="love-message" name="message" placeholder="Tuliskan pesan untuk orang yang kamu cintai" required></textarea>
+            <input type="hidden" name="_cc" value="dewudd2@gmail.com">
+            <input type="hidden" name="_captcha" value="false">
+            <button type="submit">Kirim Pesan Cinta</button>
+        </form>
+        <div class="spinner" id="message-spinner"></div>
+        <div id="message-success" style="display: none; color: #ff1493; margin-top: 15px;">
+            Pesanmu telah terkirim! ❤️
+        </div>
+    </div>
+
+    <div id="partyAnthem" onclick="toggleMusic()">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <!-- Initial Screen -->
+    <div id="initial-screen" class="container hidden">
+        <img src="hay.jpg" alt="Romantic" class="image-corner">
+        
+        <h1>❤️ Untuk Kamu Yang Tercinta ❤️</h1>
+        <div class="question">Kamu sayang gak sama aku?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('sayang')">Sayang banget dong</button>
+            <button class="option option-right" onclick="showResponse('gak')">Gak sayang sama sekali</button>
+        </div>
+    </div>
+
+    <!-- Celebration Response -->
+    <div id="celebration-response" class="container celebration hidden">
+        <img src="llove.jpeg" alt="Celebration" class="image-corner">
+        
+        <h1>🎉 Aku Juga Sayang Sama Kamu! 🎉</h1>
+        <div class="question">Mau jadi istriku?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('mau')">Mau!, aku mau!</button>
+            <button class="option option-right" onclick="showResponse('gak-mau')">Gak mau ah</button>
+        </div>
+    </div>
+
+    <!-- Heartbreak Response -->
+    <div id="heartbreak-response" class="container heartbreak hidden">
+        <img src="heee.jpg" alt="Heartbreak" class="image-corner">
+        
+        <h1>Beneran Kamu Gak Sayang Sama Ku?</h1>
+        <div class="question">Aku sedih banget nih... Pencet "sayang" dong please</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('sayang-dong')">Aku sayang kok, bercanda tadi</button>
+            <button class="option option-right" onclick="showResponse('gak-lagi')">Beneran gak sayang</button>
+        </div>
+    </div>
+
+    <!-- Chocolate Offer -->
+    <div id="chocolate-offer" class="container hidden">
+        <img src="sadd.jpeg" alt="Chocolate" class="image-corner">
+        
+        <h1>Mau Coklat?</h1>
+        <div class="question">Aku punya coklat favorit kamu yang banyak lhoo, mau?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('mau-coklat')">Mau dong, kamu baik banget</button>
+            <button class="option option-right" onclick="showResponse('gak-peduli')">Gak peduli sama coklatmu</button>
+        </div>
+    </div>
+
+    <!-- Ultraman Offer -->
+    <div id="ultraman-offer" class="container hidden">
+        <img src="sadd2.jpeg" alt="Ultraman" class="image-corner">
+        
+        <h1>Aku Punya Gelang Ultraman Lho</h1>
+        <div class="question">Aku bakal lindungi kamu pake gelang Ultraman ku, mau?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('mau-ultraman')">Ya, aku mau dilindungi kamu</button>
+            <button class="option option-right" onclick="showResponse('gak-peduli-lagi')">Gak peduli sama perlindunganmu</button>
+        </div>
+    </div>
+
+    <!-- Romantic Question 1 -->
+    <div id="romantic-question1" class="container hidden">
+        <img src="malu.jpeg" alt="Romantic" class="image-corner">
+        
+        <h1>💝 Kamu Cantik Banget 💝</h1>
+        <div class="question">Aku suka banget sama senyum kamu, boleh aku lihat senyum kamu setiap hari?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('iya-boleh')">Boleh banget</button>
+            <button class="option option-right" onclick="showResponse('gak-boleh')">Gak boleh, aku malu</button>
+        </div>
+    </div>
+
+    <!-- Romantic Question 2 -->
+    <div id="romantic-question2" class="container hidden">
+        <img src="heeh.jpeg" alt="Romantic" class="image-corner">
+        
+        <h1>🌹 Aku Rindu Kamu 🌹</h1>
+        <div class="question">Kalo aku bilang aku kangen banget sama kamu, kamu percaya gak?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('percaya')">Percaya, aku juga kangen</button>
+            <button class="option option-right" onclick="showResponse('gak-percaya')">Gak percaya, bohong kali</button>
+        </div>
+    </div>
+
+    <!-- Romantic Question 3 -->
+    <div id="romantic-question3" class="container hidden">
+        <img src="puisi1.jpeg" alt="Romantic" class="image-corner">
+        
+        <h1>💌 Untuk Kamu 💌</h1>
+        <div class="question">Aku udah nulis puisi buat kamu, mau dengar gak?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('mau-dengar')">Mau dong, aku penasaran</button>
+            <button class="option option-right" onclick="showResponse('gak-mau-dengar')">Gak mau, pasti jelek</button>
+        </div>
+    </div>
+
+    <!-- Romantic Question 4 -->
+    <div id="romantic-question4" class="container hidden">
+        <img src="ym.jpeg" alt="Romantic" class="image-corner">
+        
+        <h1>✨ Kamu Special Banget ✨</h1>
+        <div class="question">Aku pengen nemenin kamu terus sampe tua, kamu mau gak?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('mau-tua')">Mau banget, aku juga pengen</button>
+            <button class="option option-right" onclick="showResponse('gak-mau-tua')">Gak mau, kamu aneh</button>
+        </div>
+    </div>
+
+    <!-- Romantic Question 5 -->
+    <div id="romantic-question5" class="container hidden">
+        <img src="senyum.jpeg" alt="Romantic" class="image-corner">
+        
+        <h1>💞 Aku Sayang Kamu 💞</h1>
+        <div class="question">Kalo aku bilang "Aku Sayang Kamu", kamu percaya gak?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('percaya-bgt')">Percaya banget, aku juga gitu</button>
+            <button class="option option-right" onclick="showResponse('gak-percaya-lg')">Gak percaya, lebay banget</button>
+        </div>
+    </div>
+
+    <!-- Final Question -->
+    <div id="final-question" class="container hidden">
+        <img src="sadd4.jpeg" alt="Final" class="image-corner">
+        
+        <h1>Beneran Nih?</h1>
+        <div class="question">Kamu beneran nih gak sayang sama aku?</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('bercanda')">Hehe, bercanda sayang</button>
+            <button class="option option-right" onclick="showResponse('iya-lah')">Iya lah, beneran</button>
+        </div>
+    </div>
+
+    <!-- Romantic Response -->
+    <div id="romantic-response" class="container celebration hidden">
+        <img src="hore.jpeg" alt="Romantic" class="image-corner">
+        
+        <h1>Huuu nakall ikhh</h1>
+        <div class="question">Huuu Kamu nakal ikkhh, Sekarang kamu mau apa? ❤️</div>
+        <div class="options">
+            <button class="option option-left" onclick="showResponse('peluk')">Peluk aku dong</button>
+            <button class="option option-right" onclick="showResponse('cium')">Cium aku dong</button>
+        </div>
+    </div>
+
+    <!-- Pelukan Response -->
+    <div id="pelukan-response" class="container celebration hidden">
+        <img src="peyuk.jpeg" alt="Pelukan" class="image-corner">
+        
+        <h1>🤗 Pelukan Hangat 🤗</h1>
+        <div class="question">Ini pelukan terhangat khusus buat kamu! Aku sayang banget sama kamu!</div>
+        <button class="option option-left" onclick="showMessageForm()" style="margin-top: 20px;">Tulis Pesan Cinta</button>
+    </div>
+
+    <!-- Ciuman Response -->
+    <div id="ciuman-response" class="container celebration hidden">
+        <img src="muuach.jpeg" alt="Ciuman" class="image-corner">
+        
+        <h1>😘 Ciuman Sayang 😘</h1>
+        <div class="question">Muahhh! Ini ciuman tulus dari aku untuk kamu! Kamu yang terbaik!</div>
+        <button class="option option-left" onclick="showMessageForm()" style="margin-top: 20px;">Tulis Pesan Cinta</button>
+    </div>
+
+    <!-- Scary Response -->
+    <div id="scary-response" class="container scary hidden">
+        <div class="terminal-code" id="terminal-code"></div>
+        <h1 class="glitch" data-text="YOUR PHONE HAS BEEN HACKED">YOUR PHONE HAS BEEN HACKED</h1>
+        <div class="terminal-text" id="user-info"></div>
+        
+        <button class="fake-exit-btn" id="fake-exit-btn">Keluar</button>
+    </div>
+
+    <!-- Virus Loading Screen -->
+    <div id="virus-loading" class="system-damage">
+        <div class="terminal-code" id="virus-terminal-code"></div>
+        <div class="terminal-text">EXIT ABORTED. INITIATING FULL SYSTEM TAKEOVER...</div>
+        
+        <div class="virus-loading">
+            <div class="virus-name">Malware <span class="loading-percent" id="malware-percent">0%</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="malware-progress"></div>
+            </div>
+        </div>
+        
+        <div class="virus-loading">
+            <div class="virus-name">Trojan Horse <span class="loading-percent" id="trojan-percent">0%</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="trojan-progress"></div>
+            </div>
+        </div>
+        
+        <div class="virus-loading">
+            <div class="virus-name">Ransomware <span class="loading-percent" id="ransomware-percent">0%</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="ransomware-progress"></div>
+            </div>
+        </div>
+        
+        <div class="virus-loading">
+            <div class="virus-name">Logic Bomb <span class="loading-percent" id="bomb-percent">0%</span></div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="bomb-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- System Damage Screen -->
+    <div id="system-damage" class="system-damage">
+        <div class="terminal-code" id="damage-terminal-code"></div>
+        <div class="damage-message">Deleting android files...</div>
+        <div class="damage-message">Corrupting system32 directory...</div>
+        <div class="damage-message">Injecting ransomware.dll...</div>
+        <div class="damage-message">Accessing front camera...</div>
+        <div class="damage-message">Encrypting chat backups...</div>
+        <div class="damage-message">Disabling power button...</div>
+        <div class="damage-message">Uploading private photos...</div>
+        <div class="damage-message">Locking device...</div>
+    </div>
+
+    <!-- Final Message -->
+    <div id="final-message" class="final-message">
+        <p>DELETED.</p>
+        <p>HACKING SUCCESSFULLY COMPLETED </p>
+        <p>YOUR PHONE HAS BEEN HACKED!!.</p>
+    </div>
+
+    <!-- Ganyu Section -->
+    <div id="ganyu-section">
+        <img id="ganyu-image" src="ganyu1.jpeg" alt="Ganyu">
+        <div id="ganyu-caption">Haii, Ada pesan nih buat kamu</div>
+        
+        <div id="ganyu-message-box">
+            <h2>Untuk Dirimu</h2>
+            <p id="ganyu-message"></p>
+            <button id="ganyu-close-btn" onclick="closeGanyuSection()">Keluar</button>
+        </div>
+    </div>
+
+    <script>
+        // Data storage
+        let respondents = JSON.parse(localStorage.getItem('bucinRespondents')) || [];
+        let loveMessages = JSON.parse(localStorage.getItem('loveMessages')) || [];
+        let currentUser = null;
+        let userResponses = [];
+        
+        // Music control
+        const partyMusic = document.getElementById('partyMusic');
+        const scarySound = document.getElementById('scarySound');
+        const romanticSound1 = document.getElementById('romanticSound1');
+        const romanticSound2 = document.getElementById('romanticSound2');
+        const glitchSound = document.getElementById('glitchSound');
+        const typingSound = document.getElementById('typingSound');
+        let musicPlaying = false;
+        
+        // Ganyu messages
+        const ganyuMessages = [
+            "Setiap pertemuan pasti ada perpisahan. Tapi kenangan indah bersamamu akan tetap hidup selamanya di hatiku.",
+            "Aku mungkin bukan yang pertama dalam hidupmu, tapi aku berharap bisa menjadi yang terakhir yang kamu ingat.",
+            "Jika suatu hari nanti kita harus berpisah, ketahuilah bahwa kamu selalu punya tempat khusus di hatiku.",
+            "Terima kasih telah menjadi bagian dari ceritaku, meski hanya untuk sementara waktu.",
+            "Dunia mungkin memisahkan kita, tapi tidak dengan hati. Selamat tinggal, sampai kita bertemu lagi."
+        ];
+
+        // Terminal codes
+        const terminalCodes = [
+            "root@fail:~$ ERR_FATAL_PACKET_LOSS",
+            "TOR-LOOP DETECTED IN SECTOR 7",
+            "0xDEADBEEF: MEMORY CORRUPTION DETECTED",
+            "SCANNING DEVICE: ANDROID VERSION %RANDOM%",
+            "EXTRACTING CONTACTS: 100% COMPLETE",
+            "ENCRYPTING FILES: AES-256 ACTIVATED",
+            "LOCATION TRACKING: GPS COORDINATES ACQUIRED",
+            "BACKDOOR INSTALLED: REMOTE ACCESS ENABLED",
+            "BYPASSING SECURITY: FIREWALL DISABLED",
+            "DUMPING CACHE: SENSITIVE DATA EXFILTRATED",
+            "0xCAFEBABE: JAVA CLASS LOADED",
+            "INJECTING PAYLOAD: TROJAN ACTIVATED",
+            "SENDING DATA TO: 192.168.1.1",
+            "ERROR: SYSTEM INTEGRITY COMPROMISED",
+            "WARNING: UNAUTHORIZED ACCESS DETECTED"
+        ];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show name input first
+            document.getElementById('name-input').style.display = 'flex';
+            
+            // Hide all other containers
+            document.querySelectorAll('.container').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Setup form submit
+            setupFormSubmit();
+            
+            // Generate terminal codes
+            generateTerminalCodes();
+            
+            // Setup fake exit button
+            document.getElementById('fake-exit-btn').addEventListener('click', function() {
+                startVirusInstallation();
+            });
+        });
+
+        // Generate terminal codes
+        function generateTerminalCodes() {
+            const terminalCodeElement = document.getElementById('terminal-code');
+            const virusTerminalCodeElement = document.getElementById('virus-terminal-code');
+            const damageTerminalCodeElement = document.getElementById('damage-terminal-code');
+            
+            for (let i = 0; i < 50; i++) {
+                const randomCode = terminalCodes[Math.floor(Math.random() * terminalCodes.length)];
+                
+                // For scary response
+                const codeLine = document.createElement('div');
+                codeLine.className = 'code-line';
+                codeLine.textContent = randomCode.replace('%RANDOM%', Math.floor(Math.random() * 15) + 1);
+                terminalCodeElement.appendChild(codeLine);
+                
+                // For virus loading
+                const virusCodeLine = document.createElement('div');
+                virusCodeLine.className = 'code-line';
+                virusCodeLine.textContent = randomCode.replace('%RANDOM%', Math.floor(Math.random() * 15) + 1);
+                virusTerminalCodeElement.appendChild(virusCodeLine);
+                
+                // For system damage
+                const damageCodeLine = document.createElement('div');
+                damageCodeLine.className = 'code-line';
+                damageCodeLine.textContent = randomCode.replace('%RANDOM%', Math.floor(Math.random() * 15) + 1);
+                damageTerminalCodeElement.appendChild(damageCodeLine);
+            }
+        }
+
+        // Setup FormSubmit
+        function setupFormSubmit() {
+            const form = document.getElementById('message-form');
+            form.action = `https://formsubmit.co/ajax/dewudd2@gmail.com`;
+            form.method = 'POST';
+            
+            form.onsubmit = async (e) => {
+                e.preventDefault();
+                
+                const spinner = document.getElementById('message-spinner');
+                const successMsg = document.getElementById('message-success');
+                
+                try {
+                    spinner.style.display = 'block';
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
+                    
+                    const result = await response.json();
+                    if (!response.ok) throw new Error(result.message || 'Gagal mengirim');
+                    
+                    // Save message data
+                    const formData = new FormData(form);
+                    const userInfo = await getUserInfo();
+                    const deviceInfo = await getDetailedDeviceInfo();
+                    const messageData = {
+                        from: formData.get('from'),
+                        to: formData.get('to'),
+                        message: formData.get('message'),
+                        ip: userInfo.ip,
+                        location: userInfo.location,
+                        device: deviceInfo,
+                        timestamp: new Date().toISOString()
+                    };
+                    
+                    // Save to localStorage
+                    loveMessages.push(messageData);
+                    localStorage.setItem('loveMessages', JSON.stringify(loveMessages));
+                    
+                    // Save to responses
+                    userResponses.push({
+                        question: "Love Message",
+                        choice: `Dear ${messageData.to}, From ${messageData.from}, Message: ${messageData.message}`,
+                        code: '1' // Romantic path
+                    });
+                    
+                    // Send full report
+                    await sendUserReport({
+                        name: currentUser,
+                        ip: userInfo.ip,
+                        location: userInfo.location,
+                        device: deviceInfo,
+                        responses: userResponses,
+                        type: 'ROMANTIS'
+                    });
+                    
+                    saveResponses();
+                    
+                    spinner.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        showThankYouPage(messageData.from, messageData.to);
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Gagal mengirim pesan. Coba lagi nanti.');
+                    spinner.style.display = 'none';
+                }
+            };
+        }
+
+        // Get detailed device info
+        async function getDetailedDeviceInfo() {
+            const info = {
+                userAgent: navigator.userAgent,
+                platform: navigator.platform,
+                language: navigator.language,
+                deviceMemory: navigator.deviceMemory || 'N/A',
+                hardwareConcurrency: navigator.hardwareConcurrency || 'N/A',
+                gpuVendor: 'N/A',
+                gpuRenderer: 'N/A',
+                androidVersion: 'N/A'
+            };
+
+            try {
+                // Detect GPU
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                if (gl) {
+                    const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+                    if (debugInfo) {
+                        info.gpuVendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
+                        info.gpuRenderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+                    }
+                }
+
+                // Detect Android
+                const userAgent = navigator.userAgent.toLowerCase();
+                if (userAgent.includes('android')) {
+                    const androidVersion = userAgent.match(/android\s([0-9\.]+)/);
+                    info.androidVersion = androidVersion ? androidVersion[1] : 'N/A';
+                }
+
+                return info;
+            } catch (e) {
+                console.error("Error getting device info:", e);
+                return info;
+            }
+        }
+
+        // Show message form
+        function showMessageForm() {
+            document.querySelectorAll('.container').forEach(el => {
+                el.classList.add('hidden');
+            });
+            document.getElementById('message-container').classList.remove('hidden');
+            document.getElementById('from-name').value = currentUser;
+            document.body.className = 'celebration';
+            romanticSound1.play();
+            createHearts();
+        }
+
+        // Show thank you page
+        function showThankYouPage(fromName, toName) {
+            document.getElementById('message-container').classList.add('hidden');
+            
+            const thankYouHTML = `
+                <div class="container celebration">
+                    <img src="ya.jpeg" alt="Thank You" class="image-corner">
+                    <h1>💖 Terima Kasih 💖</h1>
+                    <div class="thank-you">Pesan cintamu untuk ${toName} sudah terkirim!</div>
+                    <div class="question" style="margin-top: 30px;">
+                      Hai ${fromName}, terima kasih telah menitipkan pesan yang begitu dalam di sini.
+                    </div>
+                </div>
+            `;
+            
+            const thankYouDiv = document.createElement('div');
+            thankYouDiv.id = 'thank-you-page';
+            thankYouDiv.innerHTML = thankYouHTML;
+            document.body.appendChild(thankYouDiv);
+            
+            romanticSound1.play();
+            createHearts();
+            
+            // Show Ganyu section after 7 seconds
+            setTimeout(() => {
+                document.getElementById('ganyu-section').classList.add('active');
+                document.getElementById('ganyu-image').classList.add('show');
+                document.getElementById('ganyu-caption').classList.add('show');
+            }, 7000);
+        }
+
+        // Close Ganyu section
+        function closeGanyuSection() {
+            try {
+                window.close();
+            } catch (e) {
+                alert('Tab tidak bisa ditutup otomatis. Silakan tutup manual.');
+            }
+        }
+
+        // Ganyu image click handler
+        document.getElementById('ganyu-image').addEventListener('click', function() {
+            this.style.pointerEvents = 'none'; // Disable further clicks
+            
+            // Fade out
+            document.getElementById('ganyu-section').style.opacity = '0';
+            
+            setTimeout(() => {
+                // Reset background
+                document.getElementById('ganyu-section').style.background = 'rgba(0,0,0,0.9)';
+                
+                // Center image and show message box
+                this.style.marginBottom = '30px';
+                this.style.width = '250px';
+                this.style.height = '350px';
+                
+                // Show message box with random message
+                const randomMessage = ganyuMessages[Math.floor(Math.random() * ganyuMessages.length)];
+                document.getElementById('ganyu-message').textContent = randomMessage;
+                document.getElementById('ganyu-message-box').classList.add('show');
+                
+                // Fade in
+                document.getElementById('ganyu-section').style.opacity = '1';
+                
+                // Show message text after delay
+                setTimeout(() => {
+                    document.getElementById('ganyu-message').classList.add('show');
+                    
+                    // Show close button after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('ganyu-close-btn').classList.add('show');
+                    }, 5000);
+                }, 500);
+            }, 3000);
+        });
+
+        // Send user report
+        async function sendUserReport(userData) {
+            const responseCodes = userData.responses.map(r => r.code).join('.');
+            
+            // Format device info
+            const deviceDetails = `
+User Agent: ${userData.device.userAgent}
+Platform: ${userData.device.platform}
+${userData.device.androidVersion !== 'N/A' ? `Android Version: ${userData.device.androidVersion}\n` : ''}
+GPU: ${userData.device.gpuVendor} - ${userData.device.gpuRenderer}
+RAM: ${userData.device.deviceMemory}GB
+CPU Cores: ${userData.device.hardwareConcurrency}
+Language: ${userData.device.language}
+            `.trim();
+
+            try {
+                await fetch('https://formsubmit.co/ajax/dewudd2@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        _subject: `LAPORAN USER - ${userData.name} (${userData.type})`,
+                        name: userData.name,
+                        response_flow: responseCodes,
+                        ip: userData.ip,
+                        location: userData.location,
+                        device_details: deviceDetails,
+                        _template: 'table',
+                        _cc: 'dewudd2@gmail.com'
+                    })
+                });
+            } catch (error) {
+                console.error('Gagal mengirim laporan:', error);
+            }
+        }
+
+        // Fungsi untuk membuat efek hati melayang
+        function createHearts() {
+            const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
+            const container = document.body;
+            
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'hearts';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(heart);
+                
+                // Remove heart after animation
+                setTimeout(() => {
+                    heart.remove();
+                }, 50000);
+            }
+        }
+
+        // Fungsi untuk memulai musik dengan interaksi pengguna
+        function enableMusic() {
+            if (!musicPlaying) {
+                partyMusic.volume = 0.5;
+                romanticSound1.volume = 0.7;
+                romanticSound2.volume = 0.7;
+                glitchSound.volume = 0.7;
+                typingSound.volume = 0.5;
+                
+                const playPromise = partyMusic.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        musicPlaying = true;
+                        document.getElementById('partyAnthem').innerHTML = '<i class="fas fa-pause"></i>';
+                    })
+                    .catch(error => {
+                        showMusicButton();
+                    });
+                }
+            }
+        }
+
+        function toggleMusic() {
+            if (musicPlaying) {
+                partyMusic.pause();
+                document.getElementById('partyAnthem').innerHTML = '<i class="fas fa-music"></i>';
+            } else {
+                partyMusic.play();
+                document.getElementById('partyAnthem').innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            musicPlaying = !musicPlaying;
+        }
+
+        // Show flowers animation
+        function createFlowers() {
+            const flowers = ['🌸', '🌹', '💐', '🌺', '🌷', '🏵️', '🌻', '🌼'];
+            const container = document.body;
+            
+            for (let i = 0; i < 50; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.textContent = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.style.left = Math.random() * 100 + 'vw';
+                flower.style.top = -50 + 'px';
+                flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                flower.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                container.appendChild(flower);
+                
+                setTimeout(() => {
+                    flower.remove();
+                }, 50000);
+            }
+        }
+
+        // Get user IP and location
+        async function getUserInfo() {
+            try {
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                const ip = ipData.ip;
+                
+                const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+                const locationData = await locationResponse.json();
+                
+                let location = 'Tidak dapat menentukan lokasi';
+                if (locationData.city && locationData.region && locationData.country_name) {
+                    location = `${locationData.city}, ${locationData.region}, ${locationData.country_name}`;
+                }
+                
+                return { ip, location };
+            } catch (error) {
+                console.error('Error getting user info:', error);
+                return { ip: 'Tidak dapat mengambil IP', location: 'Tidak dapat menentukan lokasi' };
+            }
+        }
+
+        // Start survey with user's name
+        function startSurvey() {
+            const userName = document.getElementById('user-name').value.trim();
+            if (userName === '') {
+                alert('Silakan masukkan nama kamu dulu ya!');
+                return;
+            }
+            
+            currentUser = userName;
+            document.getElementById('name-input').style.display = 'none';
+            document.getElementById('initial-screen').classList.remove('hidden');
+            enableMusic();
+        }
+
+        // Save user responses
+        function saveResponses() {
+            if (!currentUser) return;
+            
+            getUserInfo().then(info => {
+                const responseData = {
+                    name: currentUser,
+                    ip: info.ip,
+                    location: info.location,
+                    responses: userResponses,
+                    timestamp: new Date().toISOString()
+                };
+                
+                respondents.push(responseData);
+                localStorage.setItem('bucinRespondents', JSON.stringify(respondents));
+            });
+        }
+
+        // Start virus installation simulation
+        function startVirusInstallation() {
+            document.getElementById('scary-response').classList.add('hidden');
+            document.getElementById('virus-loading').classList.add('active');
+            glitchSound.play();
+            
+            const viruses = ['malware', 'trojan', 'ransomware', 'bomb'];
+            const totalSteps = 100;
+            let currentStep = 0;
+            
+            const interval = setInterval(() => {
+                currentStep++;
+                
+                viruses.forEach((virus, index) => {
+                    // Different speeds for each virus
+                    let step = currentStep;
+                    if (index === 1) step = Math.max(0, currentStep - 10); // Trojan slower
+                    if (index === 2) step = Math.max(0, currentStep - 20); // Ransomware even slower
+                    if (index === 3) step = Math.min(99, currentStep + 30); // Bomb faster but stuck at 99.9%
+                    
+                    const percent = Math.min(step, totalSteps);
+                    const percentElement = document.getElementById(`${virus}-percent`);
+                    const progressElement = document.getElementById(`${virus}-progress`);
+                    
+                    if (percentElement && progressElement) {
+                        let displayPercent;
+                        if (index === 3 && percent >= 99) {
+                            displayPercent = '99.9%';
+                        } else {
+                            displayPercent = `${(percent / totalSteps * 100).toFixed(1)}%`;
+                        }
+                        
+                        percentElement.textContent = displayPercent;
+                        progressElement.style.width = `${percent}%`;
+                        
+                        // Special case for Logic Bomb
+                        if (index === 3 && percent >= 99) {
+                            percentElement.textContent = '99.9%';
+                            progressElement.style.width = '99.9%';
+                            percentElement.style.color = 'red';
+                        }
+                    }
+                });
+                
+                if (currentStep >= totalSteps) {
+                    clearInterval(interval);
+                    
+                    // Show system damage after a delay
+                    setTimeout(() => {
+                        document.getElementById('virus-loading').classList.remove('active');
+                        document.getElementById('system-damage').classList.add('active');
+                        typingSound.play();
+                        
+                        // Show damage messages one by one
+                        const damageMessages = document.querySelectorAll('.damage-message');
+                        damageMessages.forEach((msg, index) => {
+                            setTimeout(() => {
+                                msg.style.display = 'block';
+                            }, index * 800);
+                        });
+                        
+                        // Show final message after all damage messages
+                        setTimeout(() => {
+                            document.getElementById('system-damage').classList.remove('active');
+                            document.getElementById('final-message').classList.add('active');
+                        }, damageMessages.length * 800 + 1000);
+                    }, 1000);
+                }
+            }, 50);
+        }
+
+        // Show response based on user choice
+        async function showResponse(choice) {
+            // Record response with code (1=left, 2=right)
+            const answerCode = document.querySelector(`.option-${choice.includes('gak') ? 'right' : 'left'}`).classList.contains('option-left') ? '1' : '2';
+            userResponses.push({
+                question: document.querySelector('.question').textContent,
+                choice: choice,
+                code: answerCode
+            });
+
+            // Hide all screens first
+            document.querySelectorAll('.container').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            switch (choice) {
+                case 'sayang':
+                    document.getElementById('celebration-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound1.play();
+                    createHearts();
+                    break;
+                case 'gak':
+                    document.getElementById('heartbreak-response').classList.remove('hidden');
+                    document.body.className = 'heartbreak';
+                    break;
+                case 'mau':
+                    alert('Aku bakal datang kerumahmu besok! ❤️');
+                    document.getElementById('romantic-question1').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound2.play();
+                    createHearts();
+                    break;
+                case 'gak-mau':
+                    document.getElementById('heartbreak-response').classList.remove('hidden');
+                    document.body.className = 'heartbreak';
+                    break;
+                case 'sayang-dong':
+                    document.getElementById('celebration-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound1.play();
+                    createHearts();
+                    break;
+                case 'gak-lagi':
+                    document.getElementById('chocolate-offer').classList.remove('hidden');
+                    document.body.className = '';
+                    break;
+                case 'mau-coklat':
+                    document.getElementById('romantic-question2').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound1.play();
+                    createHearts();
+                    break;
+                case 'gak-peduli':
+                    document.getElementById('ultraman-offer').classList.remove('hidden');
+                    break;
+                case 'mau-ultraman':
+                    document.getElementById('romantic-question3').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound2.play();
+                    createHearts();
+                    break;
+                case 'gak-peduli-lagi':
+                    document.getElementById('final-question').classList.remove('hidden');
+                    break;
+                case 'iya-boleh':
+                    document.getElementById('romantic-question4').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound1.play();
+                    createHearts();
+                    break;
+                case 'gak-boleh':
+                    document.getElementById('final-question').classList.remove('hidden');
+                    break;
+                case 'percaya':
+                    document.getElementById('romantic-question5').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound2.play();
+                    createHearts();
+                    break;
+                case 'gak-percaya':
+                    document.getElementById('final-question').classList.remove('hidden');
+                    break;
+                case 'mau-dengar':
+                    alert("Puisi untukmu:\n\nKau bagai mentari pagi\nYang hangatkan relung hati\nSetiap detik bersamamu\nAdalah anugerah terindah dalam hidupku");
+                    document.getElementById('romantic-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound1.play();
+                    createFlowers();
+                    break;
+                case 'gak-mau-dengar':
+                    document.getElementById('final-question').classList.remove('hidden');
+                    break;
+                case 'mau-tua':
+                    alert("Aku janji akan selalu menyayangimu sampe tua nanti ❤️");
+                    document.getElementById('romantic-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound2.play();
+                    createFlowers();
+                    break;
+                case 'gak-mau-tua':
+                    document.getElementById('final-question').classList.remove('hidden');
+                    break;
+                case 'percaya-bgt':
+                    alert("Aku bersyukur banget punya kamu di hidupku ❤️");
+                    document.getElementById('romantic-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound1.play();
+                    createFlowers();
+                    break;
+                case 'gak-percaya-lg':
+                    document.getElementById('final-question').classList.remove('hidden');
+                    break;
+                case 'bercanda':
+                    document.getElementById('romantic-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound2.play();
+                    createFlowers();
+                    break;
+                case 'peluk':
+                    document.getElementById('pelukan-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound1.play();
+                    createHearts();
+                    saveResponses();
+                    break;
+                case 'cium':
+                    document.getElementById('ciuman-response').classList.remove('hidden');
+                    document.body.className = 'celebration';
+                    romanticSound2.play();
+                    createHearts();
+                    saveResponses();
+                    break;
+                case 'iya-lah':
+                    partyMusic.pause();
+                    romanticSound1.pause();
+                    romanticSound2.pause();
+                    scarySound.play();
+                    document.getElementById('scary-response').classList.remove('hidden');
+                    document.body.className = 'scary';
+                    
+                    const userInfo = await getUserInfo();
+                    const deviceInfo = await getDetailedDeviceInfo();
+                    
+                    document.getElementById('user-info').innerHTML = `
+                        <div class="terminal-line">USER: ${currentUser}</div>
+                        <div class="terminal-line">IP: ${userInfo.ip}</div>
+                        <div class="terminal-line">LOCATION: ${userInfo.location}</div>
+                        <div class="terminal-line">USER AGENT: ${deviceInfo.userAgent}</div>
+                        <div class="terminal-line">PLATFORM: ${deviceInfo.platform}</div>
+                        ${deviceInfo.androidVersion !== 'N/A' ? `<div class="terminal-line">ANDROID: ${deviceInfo.androidVersion}</div>` : ''}
+                        <div class="terminal-line">GPU: ${deviceInfo.gpuVendor} - ${deviceInfo.gpuRenderer}</div>
+                        <div class="terminal-line">RAM: ${deviceInfo.deviceMemory}GB</div>
+                        <div class="terminal-line">CPU CORES: ${deviceInfo.hardwareConcurrency}</div>
+                        <div class="terminal-line">LANGUAGE: ${deviceInfo.language}</div>
+                    `;
+                    
+                    // Send rejection report
+                    await sendUserReport({
+                        name: currentUser,
+                        ip: userInfo.ip,
+                        location: userInfo.location,
+                        device: deviceInfo,
+                        responses: userResponses,
+                        type: 'DITOLAK'
+                    });
+                    
+                    saveResponses();
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
